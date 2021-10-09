@@ -248,6 +248,13 @@ body {
     height: 100vh;
   }
 }
+.nkfrv__hero--title a {
+  color: #4CB26E;
+  text-decoration: none;
+}
+.nkfrv__hero--title a:hover {
+  text-decoration: underline;
+}
 .nkfrv__topnav--icon {
   width: 40px;
   height: 40px;
