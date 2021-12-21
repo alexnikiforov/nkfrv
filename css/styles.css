@@ -1,11 +1,4 @@
 @import "normalize.css";
-@font-face {
-  font-family: "Founders Grotesk";
-  src: url("../fonts/fg.eot");
-  src: local("Founders Grotesk"), local("fg"), url("../fonts/fg.eot?#iefix") format("embedded-opentype"), url("../fonts/fg.woff2") format("woff2"), url("../fonts/fg.woff") format("woff"), url("../fonts/fg.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
 
 .color-green {
   color: #4CB26E;
@@ -101,7 +94,7 @@
 
 body {
   background-color: #000;
-  font-family: "Founders Grotesk", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
@@ -163,6 +156,8 @@ body {
 }
 .card__text a:hover {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(76, 178, 110, 0.5);
 }
 
 .nkfrv {
@@ -213,6 +208,8 @@ body {
 }
 .nkfrv__hero--title a:hover {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(76, 178, 110, 0.5);
 }
 .nkfrv__topnav--icon {
   width: 40px;
@@ -275,6 +272,8 @@ body {
 .nkfrv__topnav--link {
   color: #4CB26E;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(76, 178, 110, 0.5);
 }
 .nkfrv__topnav--link:hover {
   text-decoration: none;
@@ -307,6 +306,15 @@ body {
 }
 .nkfrv__contacts--item {
   margin-bottom: 48px;
+}
+.nkfrv__contacts--item a {
+  color: #4CB26E;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(76, 178, 110, 0.5);
+}
+.nkfrv__contacts--item a:hover {
+  text-decoration: none;
 }
 .nkfrv__contacts--item-title {
   margin-bottom: 4px;
@@ -353,6 +361,7 @@ body {
 .nkfrv__footer--nav-item {
   margin-bottom: 48px;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .nkfrv__footer--nav-item:last-child {
   margin-right: 0 !important;
