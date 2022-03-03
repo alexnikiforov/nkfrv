@@ -160,6 +160,17 @@ body {
   text-decoration-color: rgba(76, 178, 110, 0.5);
 }
 
+.topinfo {background:#df0505;}
+.topinfo a {text-decoration:none;color:#fff;}
+.topinfo a:hover {text-decoration:underline;color:#fff;}
+.topinfo {
+    font-size: 15px;
+    line-height: 1.4;
+    position: relative;
+    padding: 5px 25px 6px;
+    text-align: center;
+}
+
 .nkfrv {
   position: relative;
   min-height: 100vh;
