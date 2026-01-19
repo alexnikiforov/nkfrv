@@ -1,0 +1,327 @@
+/* =============================================
+   TailwindCSS Dark Theme Styles
+   Jason Briscoe - Creative Director Portfolio
+   ============================================= */
+
+/* CSS Variables for Dark Theme */
+:root {
+  /* Dark theme base colors */
+  --background: #0f0f0f;
+  --foreground: #fafafa;
+  --card: #171717;
+  --card-foreground: #fafafa;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --border: #262626;
+  --input: #262626;
+  --ring: #d4d4d4;
+  
+  /* Primary & Secondary */
+  --primary: #fafafa;
+  --primary-foreground: #0f0f0f;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  
+  /* Accent colors */
+  --accent: #262626;
+  --accent-foreground: #fafafa;
+  
+  /* Destructive */
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+  
+  /* Bento palette accent colors */
+  --accent-green: #39ff14;
+  --accent-yellow: #effd5f;
+  --accent-navy: #000033;
+  --accent-mint: #98ff98;
+  --accent-lime: #d1ff55;
+  --accent-salmon: #ff91a4;
+  --accent-sky: #87ceeb;
+  --accent-periwinkle: #ccccff;
+  --accent-lavender: #e6e6fa;
+  
+  /* Typography */
+  --font-family-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --tracking-tight: -0.03em;
+  
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur: 700ms;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family-body);
+  line-height: 1.5;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background gradient overlay for depth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* Match the bento-card background style globally */
+  background:
+    radial-gradient(circle at 30% 140%, rgba(217, 126, 75, 0.3) 0%, transparent 37%),
+    radial-gradient(circle at 50% 310%, rgba(4, 0, 255, 0.15) 0%, rgba(162, 166, 135, 0) 78%),
+    linear-gradient(transparent, rgba(13, 10, 25, 0.37)),
+    radial-gradient(circle at 50% -30%, rgba(168, 92, 92, 0.2) 0%, rgba(103, 69, 69, 0) 100%),
+    radial-gradient(90% 10% at 50% 0%, rgba(168, 92, 92, 0.05) 0%, rgba(103, 69, 69, 0) 90%),
+    var(--background);
+  pointer-events: none;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--muted-foreground);
+}
+
+/* Images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 1rem;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  z-index: 100;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
+/* Typography Classes */
+.display-text {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+/* Hero background */
+.hero {
+  /* Keep hero transparent so the global background shows through */
+  background: transparent;
+}
+
+/* Dark overlay to keep hero copy readable */
+.hero::before {
+  content: none;
+}
+
+/* Section 2: Process Brand Grid background image */
+.process-section {
+  position: relative;
+}
+
+.process-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("img/herobg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.process-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-headline {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.body-large {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navigation link hover effects */
+nav span:hover {
+  color: var(--foreground);
+}
+
+/* Bento card hover effects */
+.bento-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer links underline animation */
+footer a[class*="border-b"] {
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Signature animation */
+.font-cursive {
+  font-family: 'Brush Script MT', cursive;
+}
+
+/* Brand grid icons hover */
+.brand-grid-cell {
+  transition: transform 0.2s ease;
+}
+
+.brand-grid-cell:hover {
+  transform: scale(1.02);
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(57, 255, 20, 0.2);
+  color: var(--foreground);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .display-text {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  
+  .section-headline {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .display-text {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  
+  .section-headline {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+  
+  /* Stack bento cards on mobile */
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  nav,
+  .skip-link {
+    display: none;
+  }
+}
